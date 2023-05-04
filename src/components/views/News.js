@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const News = (props) => {
   return (
@@ -7,7 +8,9 @@ const News = (props) => {
       <p>{props.body}</p>
       <img src={props.image} alt={props.title} width="250px"/>
       <p>{props.source} - {props.publisher}</p>
-      <button onClick={() => props.handleDelete(props.id)}>Eliminar</button>
+      <Link to={`/news/${props.id}`}>
+        <button>Editar</button>
+      </Link>
     </div>
   );
 }

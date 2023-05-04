@@ -1,24 +1,11 @@
 import React from 'react';
 import News from './News';
-import useNews from '../hook/useNews';
-import CreateNews from './CreateNews';
+import { Link } from 'react-router-dom';
 
-const NewsList = () => {
-  const {news, deleteNews, createNews} = useNews()
+const NewsList = (props) => {
 
-  const handleDelete = (id) => {
-    console.log(id);
-    deleteNews(id);
-  };
-  const handleCreate = (props) => {
-    console.log(props);
-    console.log(news);
-    const id = news.length+1
-    console.log(id);
-    createNews({id, ...props});
-  };
-
-  const newsItems = news.map((news) =>
+  // Bucle de las noticias existentes
+  const newsItems = props.news.map((news) =>
     <News
       key={news.id}
       id={news.id}
@@ -27,13 +14,14 @@ const NewsList = () => {
       image={news.image}
       source={news.source}
       publisher={news.publisher}
-      handleDelete={handleDelete}
     />
   );
   
   return (
     <>
-      <CreateNews news={news} handleCreate={handleCreate}/>
+      <Link to="/createNews">
+        <button>Create News</button>
+      </Link>
       <div className="news-list">
         {newsItems}
       </div>
