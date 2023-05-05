@@ -1,8 +1,9 @@
 import React from 'react';
 import News from './News';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const NewsList = (props) => {
+  const navigate = useNavigate()
 
   // Bucle de las noticias existentes
   const newsItems = props.news.map((news) =>
@@ -19,9 +20,7 @@ const NewsList = (props) => {
   
   return (
     <>
-      <Link to="/createNews">
-        <button>Create News</button>
-      </Link>
+      <button onClick={() => navigate("/crear-noticia")}>Crear Noticia</button>
       <div className="news-list">
         {newsItems}
       </div>

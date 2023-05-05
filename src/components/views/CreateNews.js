@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 
 const CreateNews = (props) => {
+    const navigate = useNavigate()
     const [formData, setFormData] = useState({
         title: '',
         body: '',
@@ -29,59 +30,63 @@ const CreateNews = (props) => {
     <div>
         <form onSubmit={handleSubmit}>
         <div>
-            <label htmlFor="title">Title:</label>
+            <label htmlFor="title">Título:</label>
             <input
             type="text"
             id="title"
             name="title"
             value={formData.title}
             onChange={handleChange}
+            required
             />
         </div>
         <div>
-            <label htmlFor="body">Body:</label>
+            <label htmlFor="body">Descripción:</label>
             <textarea
             id="body"
             name="body"
             value={formData.body}
             onChange={handleChange}
+            required
             />
         </div>
         <div>
-            <label htmlFor="image">Image:</label>
+            <label htmlFor="image">Imagen:</label>
             <input
             type="text"
             id="image"
             name="image"
             value={formData.image}
             onChange={handleChange}
+            required
             />
         </div>
         <div>
-            <label htmlFor="source">Source:</label>
+            <label htmlFor="source">Fuente:</label>
             <input
             type="text"
             id="source"
             name="source"
             value={formData.source}
             onChange={handleChange}
+            required
             />
         </div>
         <div>
-            <label htmlFor="publisher">Publisher:</label>
+            <label htmlFor="publisher">Autor:</label>
             <input
             type="text"
             id="publisher"
             name="publisher"
             value={formData.publisher}
             onChange={handleChange}
+            required
             />
         </div>
-        <button type="submit">Submit</button>
+        <button type="submit">Enviar</button>
         </form>
-        <Link to="/">
-            <button>Cancel</button>
-        </Link>
+        <button onClick={() => navigate(-1)}>Volver</button>
+
     </div>
   );
 }
