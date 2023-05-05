@@ -5,6 +5,10 @@ import { Link, useNavigate } from 'react-router-dom';
 const NewsList = (props) => {
   const navigate = useNavigate()
 
+  if (props.isLoading) {
+    return <div>Cargando Noticias...</div>;
+  }
+
   // Bucle de las noticias existentes
   const newsItems = props.news.map((news) =>
     <News

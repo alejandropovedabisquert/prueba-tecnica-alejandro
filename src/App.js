@@ -1,4 +1,5 @@
 import './App.css';
+import NewsScraper from './components/NewsScraper';
 import useNews from './components/hook/useNews';
 import CreateNews from './components/views/CreateNews';
 import DetailNews from './components/views/DetailNews';
@@ -8,7 +9,7 @@ import { BrowserRouter as Router, Route, Routes, useNavigate } from 'react-route
 
 const App = () => {
   const navigate = useNavigate();
-  const {news, deleteNews, createNews, updateNews, getNewsById} = useNews()
+  const {news, deleteNews, createNews, updateNews, getNewsById, isLoading} = useNews()
 
   // Función para agregar una nueva noticia
   const handleCreate = (props) => {
@@ -32,7 +33,7 @@ const App = () => {
 
   return (
       <Routes>
-        <Route exact path="/" element={<NewsList news={news}/>} />
+        <Route exact path="/" element={<NewsList news={news} isLoading={isLoading}/>} />
         <Route path="/crear-noticia" element={<CreateNews handleCreate={handleCreate}/>} />
         <Route  path="/editar-noticia/:id" element={<EditNews handleEdit={handleEdit} handleDelete={handleDelete} getNewsById={getNewsById}/>} />
         <Route  path="/noticia/:id" element={<DetailNews handleDelete={handleDelete} getNewsById={getNewsById}/>} />
