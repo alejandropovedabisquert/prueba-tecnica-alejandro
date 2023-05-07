@@ -1,0 +1,40 @@
+@tailwind components;
+
+@layer components{
+    .news{
+        @apply
+            w-[calc(512px-2rem)] m-4 rounded-lg shadow-md border-b-4 border-primary-color
+    }
+    .news:hover .news-image img{
+        @apply
+            opacity-90 
+    }
+    .news .news-image img{
+        @apply
+            w-full object-cover h-64 rounded-t-lg hover:w-[150%] transition-all
+    }
+    .news .news-body{
+        @apply
+            m-4 relative min-h-[200px]
+    }
+    .news .news-body .news-description p{
+        @apply
+            max-w-md line-clamp-3    
+    }
+    .news .news-body .news-title{
+        @apply
+            text-xl font-bold mb-2
+    }
+    .news .news-body .news-footer{
+        @apply
+            absolute bottom-0 w-full
+    }
+    .news .news-body .news-footer a{
+        @apply
+            underline italic underline-offset-4 transition-all hover:text-secondary-color
+    }
+    .news .news-body .news-footer span{
+        @apply
+            float-right
+    }
+}

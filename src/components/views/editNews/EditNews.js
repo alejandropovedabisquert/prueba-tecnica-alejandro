@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
-import useNews from "../hook/useNews";
+import { useNavigate, useParams } from "react-router-dom";
 
 const EditNews = (props) => {
     const navigate = useNavigate()

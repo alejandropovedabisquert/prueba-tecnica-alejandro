@@ -1,0 +1,16 @@
+@tailwind components;
+
+@layer components{
+    .header{
+        @apply
+            text-center text-6xl border-t-4 border-b-4 border-secondary-color
+    } 
+    .header a{
+        @apply
+            w-fit mx-auto block
+    } 
+    .header h1{
+        @apply
+            py-4 w-fit mx-auto
+    } 
+}

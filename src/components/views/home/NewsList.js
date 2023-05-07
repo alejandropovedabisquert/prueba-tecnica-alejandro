@@ -1,6 +1,6 @@
 import React from 'react';
 import News from './News';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const NewsList = (props) => {
   const navigate = useNavigate()
@@ -23,12 +23,12 @@ const NewsList = (props) => {
   );
   
   return (
-    <>
-      <button onClick={() => navigate("/crear-noticia")}>Crear Noticia</button>
-      <div className="news-list">
+    <div className='flex flex-wrap justify-center container mx-auto'>
+      <button className='primary-button mt-4' onClick={() => navigate("/crear-noticia")}>Crear Noticia</button>
+      <div className="news-list flex flex-wrap justify-center container mx-auto transition-all">
         {newsItems}
       </div>
-    </>
+    </div>
   );
 }
 
