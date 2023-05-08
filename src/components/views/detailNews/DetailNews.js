@@ -6,16 +6,20 @@ const DetailNews = (props) => {
     const { id } = useParams();
     const news = props.getNewsById(id)
 
-    // En caso de que no hayan datos en news redirecciona al inicio
     if (!news) {
       navigate('/');
       return null;
     }
+    const date = new Date(news.date)
+
+    const formattedDate = date.toLocaleString('es-ES', { day: 'numeric', month: 'long', year: 'numeric', hour: 'numeric', minute: 'numeric' });
+    // En caso de que no hayan datos en news redirecciona al inicio
 
   return (
     <div className="container mx-auto pb-4">
       <div className="detail-news">
         <h2 className="title">{news.title}</h2>
+        <p className="date">{formattedDate}</p>
         <div className="body">
           <p className="description">{news.body}</p>
           <img src={news.image} alt={news.title} width="250px"/>

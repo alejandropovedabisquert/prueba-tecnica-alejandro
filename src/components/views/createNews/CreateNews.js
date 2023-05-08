@@ -8,6 +8,7 @@ const CreateNews = (props) => {
         body: '',
         image: '',
         source: '',
+        date: new Date().toISOString(),
         publisher: ''
       });
 

@@ -5,12 +5,16 @@ import DetailNews from './components/views/detailNews/DetailNews';
 import EditNews from './components/views/editNews/EditNews';
 import NewsList from './components/views/home/NewsList';
 import { v4 as uuidv4 } from 'uuid';
-import { Route, Routes, useNavigate } from 'react-router-dom';
+import { Navigate, Route, Routes, useNavigate } from 'react-router-dom';
 import Header from './components/layout/Header';
 
 const App = () => {
   const navigate = useNavigate();
+  
   const {news, deleteNews, createNews, updateNews, getNewsById, isLoading} = useNews()
+  
+  // Ordenaremos los datos cada vez que lo solicitemos
+  const orderedNews = news.sort((a, b) => new Date(b.date) - new Date(a.date))
 
   // Función para agregar una nueva noticia
   const handleCreate = (props) => {
@@ -35,11 +39,11 @@ const App = () => {
     <>
       <Header/>
       <Routes>
-        <Route exact path="/" element={<NewsList news={news} isLoading={isLoading}/>} />
+        <Route exact path="/" element={<NewsList news={orderedNews} isLoading={isLoading}/>} />
         <Route path="/crear-noticia" element={<CreateNews handleCreate={handleCreate}/>} />
-        <Route  path="/editar-noticia/:id" element={<EditNews handleEdit={handleEdit} handleDelete={handleDelete} getNewsById={getNewsById}/>} />
-        <Route  path="/noticia/:id" element={<DetailNews handleDelete={handleDelete} getNewsById={getNewsById}/>} />
-        {/* <Route path="/*" element={<RedirectToHome />} /> */}
+        <Route path="/editar-noticia/:id" element={<EditNews handleEdit={handleEdit} handleDelete={handleDelete} getNewsById={getNewsById}/>} />
+        <Route path="/noticia/:id" element={<DetailNews handleDelete={handleDelete} getNewsById={getNewsById}/>} />
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </>
 

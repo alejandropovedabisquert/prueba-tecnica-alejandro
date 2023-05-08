@@ -11,13 +11,15 @@ const EditNews = (props) => {
         e.preventDefault();
         props.handleEdit(id, formData);
     };
+    const now = new Date().toISOString();
 
     // Función para manejar los cambios en las entradas de formulario y actualizar el estado de formData en consecuencia
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData((prevData) => ({
             ...prevData, // Devuelve una copia del estado anterior del objeto
-            [name]: value // Actualiza la propiedad correspondiente al nombre del input con el nuevo valor
+            [name]: value,
+            date: now // Actualiza la propiedad correspondiente al nombre del input con el nuevo valor
         }));
     };
 

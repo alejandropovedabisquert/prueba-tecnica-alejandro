@@ -5,6 +5,10 @@
         @apply
             text-3xl font-semibold my-4
     }
+    .date{
+        @apply
+            font-semibold mb-2
+    }
     .body, .detail-news{
         @apply
             max-w-2xl mx-auto text-lg

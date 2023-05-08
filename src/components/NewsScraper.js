@@ -28,6 +28,9 @@ const NewsScraper = async () => {
         const articleResult = await axios.get(`${corsProxy}${source}`);
         const article$ = cheerio.load(articleResult.data);
 
+        // Extraemos la fecha de la noticia
+        const date = article$("time").attr("datetime");
+
         // Extraemos los datos de imagen, autor y cuerpo de la noticia
         const image =
           as$(element).find("figure.mm.s__mm img.mm__img").attr("src") ||
@@ -44,7 +47,7 @@ const NewsScraper = async () => {
           "";
 
         // Retornamos un objeto con los datos de la noticia
-        return { id, title, source, image, publisher, body };
+        return { id, title, source, date, image, publisher, body };
         
       } catch (error) {
         console.log(`Error obteniendo datos de noticia: ${error}`);
@@ -71,7 +74,10 @@ const NewsScraper = async () => {
       const articleResult = await axios.get(`${corsProxy}${source}`);
       const article$ = cheerio.load(articleResult.data);
 
-       // Extraemos los datos de imagen, autor y cuerpo de la noticia
+      // Extraemos la fecha de la noticia
+      const date = article$("time").attr("datetime");
+
+      // Extraemos los datos de imagen, autor y cuerpo de la noticia
       const image =
         article$("figure.ue-c-article__media")
           .find("img")
@@ -88,7 +94,7 @@ const NewsScraper = async () => {
         "";
 
       // Retornamos un objeto con los datos de la noticia
-      return { id, title, source, image, publisher, body };
+      return { id, title, source, date, image, publisher, body };
 
     } catch (error) {
       // En caso de que de error que devuelva null
@@ -105,7 +111,7 @@ const NewsScraper = async () => {
   const asData = asDataResolved.filter(data => data !== null);
 
   const data = [...asData, ...elMundoData];
-
+  // console.log(data);
   return data;
 };
 
