@@ -48,6 +48,6 @@
 
     .news .news-footer span{
         @apply
-            text-white absolute right-4 font-bold w-48 truncate text-right
+            text-white absolute left-5 top-10 sm:top-auto sm:left-auto sm:right-4 font-bold w-48 truncate sm:text-right
     }
 }

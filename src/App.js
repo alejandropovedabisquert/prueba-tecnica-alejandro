@@ -25,8 +25,10 @@ const App = () => {
 
   // Función para borrar una noticia
   const handleDelete = (id) => {
-    deleteNews(id);
-    navigate('/');
+    if (window.confirm('¿Estás seguro de que deseas eliminar esta noticia?')) {
+      deleteNews(id);
+      navigate('/');
+    }
   };
 
   // Función para editar una noticia

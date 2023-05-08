@@ -102,7 +102,7 @@ const CreateNews = (props) => {
             </div>
             <button className='success-button mr-4 mt-4'>Guardar</button>
             <Link to="/">
-                <button href='#' className='grey-button'>Volver</button>
+                <button href='#' className='grey-button mt-4'>Cancelar</button>
             </Link>
             </form>
         </div>

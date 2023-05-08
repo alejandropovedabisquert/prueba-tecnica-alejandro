@@ -100,10 +100,10 @@ const EditNews = (props) => {
                 />
             </div>
             <button className="success-button mt-4 mr-4">Guardar</button>
-            <button className="danger-button mr-4" onClick={() => props.handleDelete(id)}>Eliminar</button>
             <Link to={`/noticia/${formData.id}`}>
-                <button className="grey-button">Volver</button>
+                <button className="grey-button mt-4">Cancelar</button>
             </Link>
+            <a className="delete-button mt-4" role="button" onClick={() => props.handleDelete(id)}>Eliminar</a>
             </form>
         </div>
     </div>
