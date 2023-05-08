@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
 const EditNews = (props) => {
     const navigate = useNavigate()
@@ -21,68 +21,89 @@ const EditNews = (props) => {
         }));
     };
 
+    // En caso de que no hayan datos en formdata redirecciona al inicio
+    if (!formData) {
+        navigate('/');
+        return null;
+      }
+
 
   return (
-    <div>
-        <form onSubmit={handleSubmit}>
-        <div>
-            <label htmlFor="title">Título:</label>
-            <input
-            type="text"
-            id="title"
-            name="title"
-            value={formData.title}
-            onChange={handleChange}
-            required
-            />
+    <div className="container mx-auto py-4">
+        <div className="max-w-2xl mx-auto">
+            <h2 className='title'>Edita la notica</h2>
+            <form onSubmit={handleSubmit}>
+            <div>
+                <label htmlFor="title">Título:</label>
+                <input
+                type="text"
+                id="title"
+                name="title"
+                className="input-form"
+                value={formData.title}
+                onChange={handleChange}
+                required
+                />
+            </div>
+            <div>
+                <label htmlFor="body">Descripción:</label>
+                <textarea
+                id="body"
+                name="body"
+                className="textarea-form"
+                value={formData.body}
+                onChange={handleChange}
+                required
+                />
+            </div>
+            <div>
+                <label htmlFor="image">Imagen:</label>
+                <input
+                type="text"
+                id="image"
+                name="image"
+                className="input-form"
+                value={formData.image}
+                onChange={handleChange}
+                pattern="^https?://.*\.(?:png|jpg|jpeg|gif|PNG|JPG|JPEG|GIF)$"
+                title="Ingresa una URL de imagen válida: png, jpg, jpeg, gif"
+                required
+                />
+            </div>
+            <img src={formData.image} alt={formData.title} width="250px"/>
+            <div>
+                <label htmlFor="source">Fuente:</label>
+                <input
+                type="text"
+                id="source"
+                name="source"
+                className="input-form"
+                value={formData.source}
+                onChange={handleChange}
+                pattern="^(ftp|http|https):\/\/[^ &quot;]+$"
+                title="Ingresa una URL válida"
+                required
+                />
+            </div>
+            <div>
+                <label htmlFor="publisher">Autor:</label>
+                <input
+                type="text"
+                id="publisher"
+                name="publisher"
+                className="input-form"
+                value={formData.publisher}
+                onChange={handleChange}
+                required
+                />
+            </div>
+            <button className="success-button mt-4 mr-4">Guardar</button>
+            <button className="danger-button mr-4" onClick={() => props.handleDelete(id)}>Eliminar</button>
+            <Link to={`/noticia/${formData.id}`}>
+                <button className="grey-button">Volver</button>
+            </Link>
+            </form>
         </div>
-        <div>
-            <label htmlFor="body">Descripción:</label>
-            <textarea
-            id="body"
-            name="body"
-            value={formData.body}
-            onChange={handleChange}
-            required
-            />
-        </div>
-        <div>
-            <label htmlFor="image">Imagen:</label>
-            <input
-            type="text"
-            id="image"
-            name="image"
-            value={formData.image}
-            onChange={handleChange}
-            required
-            />
-        </div>
-        <div>
-            <label htmlFor="source">Fuente:</label>
-            <input
-            type="text"
-            id="source"
-            name="source"
-            value={formData.source}
-            onChange={handleChange}
-            required
-            />
-        </div>
-        <div>
-            <label htmlFor="publisher">Autor:</label>
-            <input
-            type="text"
-            id="publisher"
-            name="publisher"
-            value={formData.publisher}
-            onChange={handleChange}
-            required
-            />
-        </div>
-        <button type="submit">Enviar</button>
-        </form>
-        <button onClick={() => navigate(-1)}>Volver</button>
-        <button onClick={() => props.handleDelete(id)}>Eliminar</button>
     </div>
   );
 };

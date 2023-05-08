@@ -3,7 +3,7 @@
 @layer components{
     .header{
         @apply
-            text-center text-6xl border-t-4 border-b-4 border-secondary-color
+            text-center text-6xl border-t-4 border-b-4 border-secondary-color bg-white relative z-40
     } 
     .header a{
         @apply

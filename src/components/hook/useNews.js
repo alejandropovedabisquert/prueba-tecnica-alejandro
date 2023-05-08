@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import NewsScraper from '../NewsScraper';
 
 const useNews = () => {
-  // console.log(NewsScraper());
   const [news, setNews] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {

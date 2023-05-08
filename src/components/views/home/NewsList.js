@@ -1,12 +1,15 @@
 import React from 'react';
 import News from './News';
 import { useNavigate } from 'react-router-dom';
+import { FaSpinner } from 'react-icons/fa';
 
 const NewsList = (props) => {
   const navigate = useNavigate()
 
   if (props.isLoading) {
-    return <div>Cargando Noticias...</div>;
+    return <div className="absolute flex bg-gray-300 opacity-40 top-0 left-0 rounded-md z-10 bg- w-full h-full">
+              <FaSpinner className="animate-spin h-16 w-16 mx-auto self-center"/>
+            </div>;
   }
 
   // Bucle de las noticias existentes
@@ -23,7 +26,7 @@ const NewsList = (props) => {
   );
   
   return (
-    <div className='flex flex-wrap justify-center container mx-auto'>
+    <div className='flex flex-wrap justify-center container mx-auto mb-4'>
       <button className='primary-button mt-4' onClick={() => navigate("/crear-noticia")}>Crear Noticia</button>
       <div className="news-list flex flex-wrap justify-center container mx-auto transition-all">
         {newsItems}

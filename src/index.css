@@ -2,6 +2,7 @@
 @import "../src/components/assets/css/News.css";
 @import "../src/components/assets/css/Buttons.css";
 @import "../src/components/assets/css/Forms.css";
+@import "../src/components/assets/css/DetailNews.css";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

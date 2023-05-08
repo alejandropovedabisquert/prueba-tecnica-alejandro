@@ -1,0 +1,25 @@
+@tailwind components;
+
+@layer components{
+    .title{
+        @apply
+            text-3xl font-semibold my-4
+    }
+    .body, .detail-news{
+        @apply
+            max-w-2xl mx-auto text-lg
+    }
+    .body img{
+        @apply
+            w-full mt-4
+    }
+    .body .footer{
+        @apply
+            my-4
+    }
+    .body .footer a{
+        @apply
+            underline italic underline-offset-4 transition-all hover:text-secondary-color
+    }
+
+}

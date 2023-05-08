@@ -1,24 +1,27 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
-//onClick={()=> navigate(`/noticia/${props.id}`)}
 const News = (props) => {
-  const navigate = useNavigate()
   return (
     <div className="news">
-      <div className="news-image">
-        <img src={props.image} alt={props.title} width="250px"/>
-      </div>
-      <div className="news-body">
-        <h2 className="news-title">{props.title}</h2>
-        <div className='news-description'>
-          <p>{props.body}</p>
+      <Link to={`/noticia/${props.id}`}>
+        <div className="news-image">
+          <img src={props.image} alt={props.title} width="250px"/>
         </div>
+      </Link>
+      <Link to={`/noticia/${props.id}`}>
+        <div className="news-body">
+          <h2 className="news-title">{props.title}</h2>
+          <div className='news-description'>
+            <p>{props.body}</p>
+          </div>
+        </div>
+
+      </Link>
         <div className="news-footer">
           <a href={props.source} target="_blank">Fuente</a>
           <span>{props.publisher}</span>
         </div>
-      </div>
     </div>
   );
 }

@@ -23,17 +23,21 @@
     }
     .news .news-body .news-title{
         @apply
-            text-xl font-bold mb-2
+            text-xl font-bold mb-2 hover:text-secondary-color transition-all
     }
-    .news .news-body .news-footer{
+    .news:hover .news-body .news-title{
         @apply
-            absolute bottom-0 w-full
+            text-secondary-color
     }
-    .news .news-body .news-footer a{
+    .news .news-footer{
+        @apply
+            px-4 pb-4
+    }
+    .news .news-footer a{
         @apply
             underline italic underline-offset-4 transition-all hover:text-secondary-color
     }
-    .news .news-body .news-footer span{
+    .news .news-footer span{
         @apply
             float-right
     }

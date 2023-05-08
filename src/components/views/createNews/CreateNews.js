@@ -3,7 +3,6 @@ import { Link, useNavigate } from 'react-router-dom';
 
 
 const CreateNews = (props) => {
-    const navigate = useNavigate()
     const [formData, setFormData] = useState({
         title: '',
         body: '',
@@ -27,9 +26,9 @@ const CreateNews = (props) => {
     }
 
   return (
-    <div className='container mx-auto pt-4'>
-        <h2 className='text-center text-3xl font-semibold my-4'>Crea una notica</h2>
+    <div className='container mx-auto py-4'>
         <div className='max-w-2xl mx-auto'>
+            <h2 className='title'>Crea una noticia</h2>
             <form onSubmit={handleSubmit}>
             <div>
                 <label htmlFor="title">Título:</label>
@@ -66,8 +65,8 @@ const CreateNews = (props) => {
                 placeholder='Ingresa una url de una imagen'
                 value={formData.image}
                 onChange={handleChange}
-                pattern="(http(s?):)([/|.|\w|\s|-])*\.(?:gif|jpeg|jpg|tiff?|png|webp|bmp)"
-                title="Ingresa una URL de imagen válida"
+                pattern="^https?://.*\.(?:png|jpg|jpeg|gif|PNG|JPG|JPEG|GIF)$"
+                title="Ingresa una URL de imagen válida: png, jpg, jpeg, gif"
                 required
                 />
             </div>
@@ -99,7 +98,7 @@ const CreateNews = (props) => {
                 required
                 />
             </div>
-            <button className='success-button mr-4 mt-4'>Enviar</button>
+            <button className='success-button mr-4 mt-4'>Guardar</button>
             <Link to="/">
                 <button href='#' className='grey-button'>Volver</button>
             </Link>
