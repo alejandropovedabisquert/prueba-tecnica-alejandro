@@ -31,17 +31,17 @@ const NewsScraper = async () => {
         // Extraemos los datos de imagen, autor y cuerpo de la noticia
         const image =
           as$(element).find("figure.mm.s__mm img.mm__img").attr("src") ||
-          "https://via.placeholder.com/150";
+          "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Diario_AS.svg/1200px-Diario_AS.svg.png";
         const publisher =
           article$("div.art__me a span.art__au__name")
             .text()
             .trim() ||
           as$(element).find("div.s__me .s__au").text() ||
-          "Publisher desconocido";
+          "AS.com";
         const body =
           article$("h2.art__hdl__opn").html() ||
           as$(element).find(".s__sum").text() ||
-          "No se pudo obtener el cuerpo de la noticia";
+          "";
 
         // Retornamos un objeto con los datos de la noticia
         return { id, title, source, image, publisher, body };
@@ -79,13 +79,13 @@ const NewsScraper = async () => {
         article$("figure.ue-c-article__media")
           .find("img")
           .attr("src") ||
-        "https://via.placeholder.com/150";
+        "https://e00-elmundo.uecdn.es/assets/v23/img/destacadas/elmundo__logo-generica.jpg";
       const publisher =
         article$(".ue-c-article__byline-name").text().trim() ||
-        "Publisher desconocido";
+        "ElMundo.es";
       const body =
         article$("article.ue-c-article.has-image .ue-c-article__standfirst").text() ||
-        "No se pudo obtener el cuerpo de la noticia";
+        "";
 
       // Retornamos un objeto con los datos de la noticia
       return { id, title, source, image, publisher, body };

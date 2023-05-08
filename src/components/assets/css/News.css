@@ -3,27 +3,35 @@
 @layer components{
     .news{
         @apply
-            w-[calc(512px-2rem)] m-4 rounded-lg shadow-md border-b-4 border-primary-color
+            w-[calc(512px-2rem)] m-4 rounded-lg shadow-md relative transition-all
     }
-    .news:hover .news-image img{
+    .news .news-background{
         @apply
-            opacity-90 
+            bg-black w-full h-full absolute rounded-lg opacity-25
     }
     .news .news-image img{
         @apply
-            w-full object-cover h-64 rounded-t-lg hover:w-[150%] transition-all
+            w-full object-cover h-96 rounded-lg transition-all
     }
     .news .news-body{
         @apply
-            m-4 relative min-h-[200px]
+        mr-4 bottom-0 absolute bg-white transition-all rounded-tr-xl rounded-bl-lg opacity-75
     }
-    .news .news-body .news-description p{
+    .news:hover .news-body{
         @apply
-            max-w-md line-clamp-3    
+            bottom-12 rounded-br-xl rounded-bl-none opacity-90
     }
     .news .news-body .news-title{
         @apply
-            text-xl font-bold mb-2 hover:text-secondary-color transition-all
+            mx-4 mt-2
+    }
+    .news .news-body .news-description p{
+        @apply
+            max-w-md line-clamp-2 mx-4 mb-2 transition-all
+    }
+    .news .news-body .news-title{
+        @apply
+            text-xl font-bold mb-2 hover:text-secondary-color transition-all line-clamp-2
     }
     .news:hover .news-body .news-title{
         @apply
@@ -31,14 +39,15 @@
     }
     .news .news-footer{
         @apply
-            px-4 pb-4
+            px-4 pb-4 absolute top-4 w-full
     }
     .news .news-footer a{
         @apply
-            underline italic underline-offset-4 transition-all hover:text-secondary-color
+            font-bold transition-all text-white bg-secondary-color p-2 rounded-full hover:bg-primary-color
     }
+
     .news .news-footer span{
         @apply
-            float-right
+            text-white absolute right-4 font-bold w-48 truncate text-right
     }
 }

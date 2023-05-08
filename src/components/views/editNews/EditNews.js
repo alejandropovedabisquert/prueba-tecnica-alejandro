@@ -31,7 +31,7 @@ const EditNews = (props) => {
   return (
     <div className="container mx-auto py-4">
         <div className="max-w-2xl mx-auto">
-            <h2 className='title'>Edita la notica</h2>
+            <h2 className='form-title'>Edita la noticia</h2>
             <form onSubmit={handleSubmit}>
             <div>
                 <label htmlFor="title">Título:</label>
@@ -72,7 +72,7 @@ const EditNews = (props) => {
             </div>
             <img src={formData.image} alt={formData.title} width="250px"/>
             <div>
-                <label htmlFor="source">Fuente:</label>
+                <label htmlFor="source">Fuente de la noticia:</label>
                 <input
                 type="text"
                 id="source"

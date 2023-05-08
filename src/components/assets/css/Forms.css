@@ -3,16 +3,26 @@
 @layer components{
     .input-form{
         @apply
-            shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded focus:border-primary-color block w-full p-2.5 focus:outline-none focus:ring-2 focus:ring-primary-color mb-4
+            shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded focus:border-primary-color block w-full p-2.5 focus:outline-none focus:ring-2 focus:ring-primary-color mb-4 mt-2
     } 
     .textarea-form{
         @apply
-            block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded shadow-sm border border-gray-300 focus:ring-primary-color focus:border-primary-color focus:outline-none focus:ring-2 mb-4 min-h-[150px]
+            block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded shadow-sm border border-gray-300 focus:ring-primary-color focus:border-primary-color focus:outline-none focus:ring-2 mb-4 min-h-[150px] mt-2
+    }
+
+    form{
+        @apply
+            shadow-xl px-10 py-5 rounded-lg
+    }
+
+    .form-title{
+        @apply
+            uppercase text-2xl font-semibold md:text-3xl tracking-widest grid grid-cols-title grid-rows-title gap-6 before:content-[''] after:content-[''] before:block after:block before:border-b-2 after:border-b-2 before:border-secondary-color after:border-secondary-color mb-4
     }
 
     form label{
         @apply
-            text-xl pt-5
+            text-xl pt-5 font-semibold
 
     }
 

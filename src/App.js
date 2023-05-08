@@ -5,7 +5,7 @@ import DetailNews from './components/views/detailNews/DetailNews';
 import EditNews from './components/views/editNews/EditNews';
 import NewsList from './components/views/home/NewsList';
 import { v4 as uuidv4 } from 'uuid';
-import { Navigate, Route, Routes, useNavigate } from 'react-router-dom';
+import { Route, Routes, useNavigate } from 'react-router-dom';
 import Header from './components/layout/Header';
 
 const App = () => {

@@ -9,6 +9,13 @@ module.exports = {
         'primary-color': '#FF844B',
         'secondary-color': '#ED9200',
       },
+      gridTemplateColumns: {
+        'title': '1fr auto 1fr',
+        'about': '.1fr auto 1fr'
+      },
+      gridTemplateRows: {
+        'title': '16px 0'
+      },
     },
   },
   plugins: [],

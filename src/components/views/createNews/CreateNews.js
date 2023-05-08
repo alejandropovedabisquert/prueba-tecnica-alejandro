@@ -28,7 +28,7 @@ const CreateNews = (props) => {
   return (
     <div className='container mx-auto py-4'>
         <div className='max-w-2xl mx-auto'>
-            <h2 className='title'>Crea una noticia</h2>
+            <h2 className='form-title'>Crea una noticia</h2>
             <form onSubmit={handleSubmit}>
             <div>
                 <label htmlFor="title">Título:</label>
@@ -70,8 +70,9 @@ const CreateNews = (props) => {
                 required
                 />
             </div>
+            <img src={formData.image} alt={formData.title} width="250px"/>
             <div>
-                <label htmlFor="source">Fuente:</label>
+                <label htmlFor="source">Fuente de la noticia:</label>
                 <input
                 type="text"
                 id="source"

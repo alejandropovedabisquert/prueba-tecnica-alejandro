@@ -20,7 +20,7 @@ const DetailNews = (props) => {
           <p className="description">{news.body}</p>
           <img src={news.image} alt={news.title} width="250px"/>
           <div className="footer">
-            <a href={news.source} target="_blank">Fuente</a>
+            <a href={news.source} target="_blank" rel="noreferrer">Fuente de la noticia</a>
             <p>Autor: {news.publisher}</p>
             <button className="blue-button mt-4 mr-4" onClick={() => navigate(`/editar-noticia/${id}`)}>Editar</button>
             <button className="danger-button mr-4" onClick={() => props.handleDelete(id)}>Eliminar</button>
